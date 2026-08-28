@@ -10,7 +10,6 @@
 Heavy crude oil is essential for producing marine fuels, bunker oil, and heavy distillates. Canada is a major heavy‑oil producer, but faces constraints related to refining configuration, transportation capacity, and shifting global supply dynamics.
 
 This project delivers:
-
 - A **Heavy‑Oil Market Disruption Risk Index**  
 - **Production & consumption forecasts** to 2030  
 - **Scenario modeling** for geopolitical & localized disruptions  
@@ -23,14 +22,13 @@ This project delivers:
 Heavy crude oil supply is increasingly constrained, while many countries remain structurally dependent on heavy crude for marine fuel production and refining operations. Canada produces the majority of heavy crude in a market trending toward lighter grades, creating both risk and opportunity.
 
 To quantify these dynamics, we:
-
-- Estimated heavy‑oil production for **18 major producing countries (1975–2026)**  
+- Estimated heavy‑oil production for **18 major producing countries (1973–2026)**  
 - Modeled heavy‑oil consumption using **residual fuel oil** as a proxy  
 - Incorporated major **geopolitical and localized disruption events**  
 - Forecasted production and consumption to **2030** under multiple scenarios  
-- Built a **risk index** combining supply volatility, demand exposure, refining rigidity, and Canada’s trade relationships  
+- Built a **risk index** combining heavy‑oil supply and demand shocks, and Canada’s trade‑based exposure to each disruption scenario
 
-These results are visualized in an interactive **Power BI dashboard**.
+Results are visualized in an interactive **Power BI dashboard**.
 
 ---
 
@@ -76,6 +74,7 @@ heavy-oil-analysis/
 │
 ├── LICENSE
 ├── README.md
+├── databricks-jupyter-notebooks-description.txt
 └── library-requirements.txt
 ```
 ---
@@ -85,31 +84,38 @@ heavy-oil-analysis/
 - Government reports & industry publications
 - Chirality Research domain expertise
 
+---
+
 ## **🛠️ Methodology**
 ### **1. Literature Review**
 Built domain knowledge on API gravity, refining constraints, Canada’s trade relationships, and historical disruption events.
 
 ### **2. Heavy‑Oil Production & Consumption Estimation**
-Heavy‑oil production is rarely published directly. We estimated heavy‑oil shares for **18 major producing countries**, constructing a **1975–2026** time series.
-Residual fuel oil consumption was used as a proxy for heavy‑oil demand due to limited API‑specific consumption data.
+Estimated heavy‑oil shares for **18 major producing countries** (1973–2026).
+Used residual fuel oil as a proxy for heavy‑oil demand.
 
 ### **3. Disruption Event Modelling**
-Events included:
+Events encoded as structural breaks or temporary shocks:
 | **1973 OPEC Embargo** | **1979 Iranian Revolution** | **Iran–Iraq War (1980–1988**) | **Gulf War (1990–1991)** |
 | **Venezuelan Sanctions (2017, 2019)** | **Pipeline Expansions (Line 3, Line 6, Keystone, TMX)** | **Fort McMurray Wildfires (2016)** | **Hurricane Katrina (2005)** |
 | **Venezuelan General Strike (2002–2003)** | **COVID‑19 Shutdowns (2020)** | **Russian Oil Price Cap (2022**) | — |
 
-Events were encoded as structural breaks or temporary shocks.
-
 ### **4. Forecasting Models**
-Models evaluated:
-- **ARIMAX**  |  **SARIMAX**  |  **Prophet**
+Models evaluated: **ARIMAX**, **SARIMAX**, **Prophet**
 
-Training/testing split:  
-- Consumption data : Final 3 years of available data = test set,  Remaining history = training set
-- Production data : Final 12 months of available data = test set,  Remaining history = training set
+Train/test split:
+- Consumption: Final 3 years = test set
+- Production: Final 12 months = test set
 
-Best model selected per country based on error metrics (MAPE).
+Modelling Framework
+| Component            | Period                                              | Description |
+|----------------------|-----------------------------------------------------|-------------|
+| **Training Period**  | 1973–Feb2025(production), 1980-2021(consumption)    | Models trained on historical heavy‑oil production and residual‑fuel‑oil consumption data |
+| **Validation Period**| Feb2025-Feb2026(production), 2022–2024(consumption) | Final 3 years (consumption) and final 12 months (production) used for out‑of‑sample testing |
+| **Refitting Period** | 1973–2026(production), 1980-2024(consumption)       | Models retrained on the full dataset before generating final scenario forecasts |
+| **Forecast Horizon** | 2026–2030(production), 2025–2030(consumption)       | Heavy‑oil production and consumption projections used for scenario analysis and risk‑index calculation |
+
+Best model selected per country using MAPE.
 
 ### **5. Heavy‑Oil Market Disruption Risk Index**
 Index components:
@@ -123,82 +129,21 @@ Index components:
 All development and execution occur in **Databricks**, using a structured Bronze → Silver → Gold pipeline and a three‑stage workflow: **Data Preparation (ETL)** → **Forecasting** → **Analysis**.
 
 **Databricks Workspace:**  
-https://dbc-91c40ae8-df1c.cloud.databricks.com/browse/folders/3838865724760078?o=7474659271125396
+[https://dbc-91c40ae8-df1c.cloud.databricks.com/browse/folders/3838865724760078?o=7474659271125396](https://dbc-91c40ae8-df1c.cloud.databricks.com/browse/folders/3838865724760078?o=7474659271125396)
 
 **Suggested Run Sequence (Full Pipeline)**
 Refer to numeric digits in front of notebook naming : 01-* → 02-* → 03-* → 04-* → 05-*
 
----
+A description of notebook functions is provided in `databricks-jupyter-notebooks-description.txt`.
 
-### **1. Data Preparation (ETL)**
-Located under **1‑Data Preparation (ETL)**
-
-**Ingestion (Bronze Layer)**  
-1. `01-Canada’s Heavy Crude Trade Partners - Ingestion`  
-2. `01-EIA residual fuel consumption API ingestion`  
-3. `01-EIA total crude production ingestion`  
-4. `01-EIA_Country level heavy crude - data ingestion`  
-
-These notebooks pull raw production, consumption, trade partner, and heavy‑oil proxy data from EIA APIs and external sources.
-
-**Cleaning & Updates (Silver Layer)**  
-5. `02-Clean consumption EIA data`  
-6. `02-Update Binary Scenario Variables from Google Drive`  
-7. `02-Update Canada’s Trade Relationships from Google Drive`  
-
-These notebooks standardize formats, update scenario variables, and prepare model‑ready datasets.
-
-**Gold Table Creation (Gold Layer)**  
-8. `03-Create gold - heavy_consumption_timeseries_annual`  
-9. `03-Create prod and heavy_prod_monthly gold`  
-
-These produce final business‑ready tables for forecasting, risk index modeling, and dashboard integration.
-
----
-
-### **2. Forecasting — Production & Consumption Models**
-Located under **2‑Forecasting**:
-
-**Validation Scripts (Optional, for testing only)**  
-- `(FOR VALIDATION ONLY) Consumption Forecast - Individual Scenario`  
-- `(FOR VALIDATION ONLY) Production Forecast - Individual Scenario`  
-
-**Worker Notebooks (Main Forecasting Logic)**  
-10. `Consumption Forecast - Single Scenario by Country`  
-11. `Production Forecast - Single Scenario by Country`  
-12. `Production - Run All Scenarios for a Country and Update Heavy Crude Production`  
-13. `04-Consumption - Looping All Selected Countries and Run All Scenarios`  
-14. `04-Production - Looping All Countries and Scenarios` 
-
-These notebooks run ARIMAX, SARIMAX, and Prophet models for all countries and all disruption scenarios.
-
----
-
-### **3. Analysis — Risk Index & Final Outputs**
-Located under **3‑Analysis**:
-
-15. `05-Update Index`  
-
-This notebook generates the **Heavy‑Oil Market Disruption Risk Index**, combining supply volatility, demand exposure, refining rigidity, and Canada’s trade exposure.
-
----
-
-### **4. Running the Workflow**
+**Running the Workflow**
 1. Attach a Databricks cluster  
-2. Run **Data Preparation (ETL)** notebooks in order  
-3. Run **Forecasting** notebooks (looping versions)  
-4. Run **Analysis** notebook to generate final risk index tables  
+2. Run **Data Preparation (ETL)** notebooks in order (01 → 02 → 03)
+3. Run **Forecasting** notebooks (04)  
+4. Run **Analysis** notebook - (05)  
 5. Export Gold tables for Power BI dashboard
 
----
-
-### **5. Dashboard Integration**
-Power BI uses the Import data connectivity mode to load the **Gold‑layer tables** exported from Databricks. 
-By avoiding DirectQuery on a capacity-constrained Databricks environment, Import mode ensures fast visuals, stable performance, and full DAX functionality.
-
----
-
-### **6. Requirements**
+**Requirements**
 All dependencies are managed inside Databricks clusters, list of libraries required are listed in `library-requirements.txt`.
 
 ---
@@ -214,8 +159,10 @@ All dependencies are managed inside Databricks clusters, list of libraries requi
 ---
 
 ## **📊 Dashboard Preview**
-The interactive dashboard is created using Microsoft Power BI.
-The Power BI dashboard an interactive view of the project’s core insights, including:
+The interactive dashboard is created using Microsoft Power BI via the Import data connectivity mode to load the **Gold‑layer tables** exported from Databricks. 
+By avoiding DirectQuery on a capacity-constrained Databricks environment, Import mode ensures fast visuals, stable performance, and full DAX functionality.
+
+The dashboard provides an interactive view of the project’s core insights, including:
 - Country‑level production & consumption forecasts
 - Scenario toggles for each disruption event
 - Heavy‑oil surplus/deficit projections
