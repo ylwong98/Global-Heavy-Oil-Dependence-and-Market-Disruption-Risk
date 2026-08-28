@@ -45,7 +45,7 @@ These results are visualized in an interactive **Power BI dashboard**.
 
 ## **📂 Repository Structure**
 ```bash
-project-root/
+heavy-oil-analysis/
 │ 
 ├── notebooks/                                                                     # All development notebooks (Databricks-exported)
 │   ├── 1-Data-Preparation-ETL/                                                     
