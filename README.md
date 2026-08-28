@@ -134,7 +134,7 @@ All development and execution occur in **Databricks**, using a structured Bronze
 **Databricks Workspace:**  
 [https://dbc-91c40ae8-df1c.cloud.databricks.com/browse/folders/3838865724760078?o=7474659271125396](https://dbc-91c40ae8-df1c.cloud.databricks.com/browse/folders/3838865724760078?o=7474659271125396)
 
-![Data Pipeline Diagram]()
+![Data Pipeline Diagram](supporting-documents-reports/Heavy Crude Analysis Data Pipeline Diagram - Chirality Research.png)
 
 **Suggested Run Sequence (Full Pipeline)**
 Refer to numeric digits in front of notebook naming : 01-* → 02-* → 03-* → 04-* → 05-*
