@@ -97,8 +97,9 @@ Used residual fuel oil as a proxy for heavy‑oil demand.
 ### **3. Disruption Event Modelling**
 Events encoded as structural breaks or temporary shocks:
 
-| **1973 OPEC Embargo** | **1979 Iranian Revolution** | **Iran–Iraq War (1980–1988)** | **Gulf War (1990–1991)** |
+|   |   |   |   |
 |---|---|---|---|
+| **1973 OPEC Embargo** | **1979 Iranian Revolution** | **Iran–Iraq War (1980–1988)** | **Gulf War (1990–1991)** |
 | **Venezuelan Sanctions (2017, 2019)** | **Pipeline Expansions (Line 3, Line 6, Keystone, TMX)** | **Fort McMurray Wildfires (2016)** | **Hurricane Katrina (2005)** |
 | **Venezuelan General Strike (2002–2003)** | **COVID‑19 Shutdowns (2020)** | **Russian Oil Price Cap (2022)** | — |
 
