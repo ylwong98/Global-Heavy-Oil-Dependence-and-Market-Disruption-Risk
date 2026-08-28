@@ -12,7 +12,7 @@ Heavy crude oil is essential for producing marine fuels, bunker oil, and heavy d
 This project delivers:
 - A **Heavy‑Oil Market Disruption Risk Index**  
 - **Production & consumption forecasts** to 2030  
-- **Scenario modeling** for geopolitical & localized disruptions  
+- **Scenario modelling** for geopolitical & localized disruptions  
 - A **Power BI dashboard** for interactive exploration  
 - Strategic insights for Canada’s heavy‑oil export opportunities  
 
@@ -134,6 +134,8 @@ All development and execution occur in **Databricks**, using a structured Bronze
 **Databricks Workspace:**  
 [https://dbc-91c40ae8-df1c.cloud.databricks.com/browse/folders/3838865724760078?o=7474659271125396](https://dbc-91c40ae8-df1c.cloud.databricks.com/browse/folders/3838865724760078?o=7474659271125396)
 
+![Data Pipeline Diagram]()
+
 **Suggested Run Sequence (Full Pipeline)**
 Refer to numeric digits in front of notebook naming : 01-* → 02-* → 03-* → 04-* → 05-*
 
@@ -183,7 +185,7 @@ A copy of the dashboard file is available in the `dashboard/` folder of the repo
 - Incorporate more granular API‑gravity consumption data instead of relying on residual fuel as a proxy.
 - Add support for multi‑event or compound disruption scenarios.
 - Strengthen forecasting models with additional exogenous variables (refinery outages, shipping constraints, macroeconomic indicators).
-- Improve pipeline capacity modeling, especially API‑gravity‑based throughput effects.
+- Improve pipeline capacity modelling, especially API‑gravity‑based throughput effects.
 - Enable scheduled or real‑time dashboard refreshes once Databricks capacity allows.
 
 ---
