@@ -42,7 +42,7 @@ Results are visualized in an interactive **Power BI dashboard**.
 ---
 
 ## **📂 Repository Structure**
-```bash
+```text
 heavy-oil-analysis/
 │ 
 ├── notebooks/                                                                     # All development notebooks (Databricks-exported)
@@ -112,8 +112,8 @@ Modelling Framework
 |----------------------|-----------------------------------------------------|-------------|
 | **Training Period**  | 1973–Feb2025(production), 1980-2021(consumption)    | Models trained on historical heavy‑oil production and residual‑fuel‑oil consumption data |
 | **Validation Period**| Feb2025-Feb2026(production), 2022–2024(consumption) | Final 3 years (consumption) and final 12 months (production) used for out‑of‑sample testing |
-| **Refitting Period** | 1973–2026(production), 1980-2024(consumption)       | Models retrained on the full dataset before generating final scenario forecasts |
-| **Forecast Horizon** | 2026–2030(production), 2025–2030(consumption)       | Heavy‑oil production and consumption projections used for scenario analysis and risk‑index calculation |
+| **Retrain Period**   | 1973–2026(production), 1980-2024(consumption)       | Models retrained on the full dataset before generating final scenario forecasts |
+| **Forecast Period**  | 2026–2030(production), 2025–2030(consumption)       | Heavy‑oil production and consumption projections used for scenario analysis and risk‑index calculation |
 
 Best model selected per country using MAPE.
 
