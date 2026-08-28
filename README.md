@@ -47,31 +47,32 @@ These results are visualized in an interactive **Power BI dashboard**.
 ```bash
 project-root/
 │ 
-├── notebooks/                                                               # All development notebooks (Databricks-exported)
-|   ├── EDA/                                                                 # Exploratory analysis
-|       ├──
-|       └── 
-│   ├── 1-Data-Preparation-ETL/                                              # 
-|       ├── 01-Canada's Heavy Crude Trade Partners - Ingestion.ipnyb         #
-|       ├── 01-EIA Country level heavy crude - data ingestion.ipnyb          # Ingest & calculate country-level heavy crude production data, using pre-defined % values
-|       ├── 01-EIA residual fuel consumption API ingestion.ipnyb             #
-|       ├── 01-EIA total crude production ingestion.ipnyb                    #
-|       ├── 02-Clean consumption EIA data.ipnyb
-|       ├── 02-Update Binary Scenario Variables from Google Drive.ipnyb      # notebooks for Silver-layer cleaning & updates
-|       ├── 02-Update Canada's Trade Relationships from Google Drive.ipnyb   #
-|       ├── 03-Create gold - heavy_consumption_timeseries_annual.ipynb       # notebook for Gold-layer table creation
-|       └── 03-Create prod and heavy_prod_monthly gold.ipynb                 # notebook for Gold-layer table creation
-│   └── 2-Modelling-Analysis/                                                # forecasting & scenario analysis notebooks
-|       ├── 04-Consumption - Looping All Selected Countries and Run All Scenarios.ipynb    #
-|       ├── 04-Production - Looping All Countries and Scenarios                            #
-|       └── 05-Update Index.ipynb                                                          #
+├── notebooks/                                                                     # All development notebooks (Databricks-exported)
+│   ├── 1-Data-Preparation-ETL/                                                     
+│       ├── 01-Canada's Heavy Crude Trade Partners - Ingestion.ipynb               # Process Canada's heavy crude trade data (imports/exports)
+│       ├── 01-EIA Country level heavy crude production - data ingestion.ipynb     # Ingest & calculate country-level heavy crude production using % heavy assumptions (from EIA-production-with-percent-heavy-calculation.xlsx)
+│       ├── 01-EIA residual fuel consumption API ingestion.ipynb                   # Ingest residual fuel consumption data from EIA API
+│       ├── 01-EIA total crude production ingestion.ipynb                          # Ingest total crude oil production data from EIA API
+│       ├── 02-Clean consumption EIA data.ipynb                                    # Clean & transform consumption data
+│       ├── 02-Update Binary Scenario Variables from Google Drive.ipynb            # Sync predefined exogenous scenario variables (from Timeline-of-historical-events.csv) to gold.exogenous_variables table
+│       ├── 02-Update Canada's Trade Relationships from Google Drive.ipynb         # Update country-specific trade shares used in the risk index calculation
+│       ├── 03-Create gold - heavy_consumption_timeseries_annual.ipynb             # Gold-layer heavy consumption table creation
+│       └── 03-Create prod and heavy_prod_monthly gold.ipynb                       # Gold-layer heavy production table creation
+│   └── 2-Modelling-Analysis/                                                      
+│       ├── 04-Consumption - Looping All Selected Countries and Run All Scenarios.ipynb    # Batch consumption forecasting across all country-scenario pairs
+│       ├── 04-Production - Looping All Countries and Scenarios.ipynb                      # Batch production forecasting across all country-scenario pairs
+│       └── 05-Update Index.ipynb                                                          # Compute Heavy-Oil Market Disruption Risk Index
 │
 ├── dashboard/
 │   └── Chirality Research - Analysis of Global Heavy-Oil Dependence and Market Disruption Risk - Dashboard.pbix
 │
 ├── supporting-documents-reports/
-|   ├── 
-│   └── Final Report (Expanded) - Chirality.pdf                              # Final written report
+│   ├── Canada-heavy-crude-trade-exports_Jun2021-Jun2026.csv                 # Canada's heavy crude exports
+│   ├── Canada-heavy-crude-trade-imports-Jun2021-Jun2026.csv                 # Canada's heavy crude imports
+│   ├── Timeline-of-historical-events.csv                                    # Historical disruption events
+│   ├── Assumptions-percent-heavy-oil-production-by-country.xlsx             # Assumption references for country-level heavy crude production share
+│   ├── EIA-production-with-percent-heavy-calculation.xlsx                   # Country‑level heavy crude production share values
+│   └── Final Report - Chirality Research.pdf                                # Final written report
 │
 ├── LICENSE
 ├── README.md
