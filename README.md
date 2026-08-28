@@ -49,14 +49,16 @@ project-root/
 │ 
 ├── notebooks/                                                               # All development notebooks (Databricks-exported)
 |   ├── EDA/                                                                 # Exploratory analysis
-│   ├── 1-Data-Preparation-ETL/                                                # 
+|       ├──
+|       └── 
+│   ├── 1-Data-Preparation-ETL/                                              # 
 |       ├── 01-Canada's Heavy Crude Trade Partners - Ingestion.ipnyb         #
 |       ├── 01-EIA Country level heavy crude - data ingestion.ipnyb          # Ingest & calculate country-level heavy crude production data, using pre-defined % values
 |       ├── 01-EIA residual fuel consumption API ingestion.ipnyb             #
-|       └── 01-EIA total crude production ingestion.ipnyb                    #
+|       ├── 01-EIA total crude production ingestion.ipnyb                    #
 |       ├── 02-Clean consumption EIA data.ipnyb
 |       ├── 02-Update Binary Scenario Variables from Google Drive.ipnyb      # notebooks for Silver-layer cleaning & updates
-|       └── 02-Update Canada's Trade Relationships from Google Drive.ipnyb   #
+|       ├── 02-Update Canada's Trade Relationships from Google Drive.ipnyb   #
 |       ├── 03-Create gold - heavy_consumption_timeseries_annual.ipynb       # notebook for Gold-layer table creation
 |       └── 03-Create prod and heavy_prod_monthly gold.ipynb                 # notebook for Gold-layer table creation
 │   └── 2-Modelling-Analysis/                                                # forecasting & scenario analysis notebooks
@@ -67,13 +69,13 @@ project-root/
 ├── dashboard/
 │   └── Chirality Research - Analysis of Global Heavy-Oil Dependence and Market Disruption Risk - Dashboard.pbix
 │
-├── supporting documents and reports/
+├── supporting-documents-reports/
 |   ├── 
 │   └── Final Report (Expanded) - Chirality.pdf                              # Final written report
 │
 ├── LICENSE
 ├── README.md
-└── requirements.txt
+└── library-requirements.txt
 ```
 ---
 
@@ -208,7 +210,7 @@ By avoiding DirectQuery on a capacity-constrained Databricks environment, Import
 ---
 
 ### **6. Requirements**
-All dependencies are managed inside Databricks clusters, list of libraries required are listed in `libraries-requirement.txt`.
+All dependencies are managed inside Databricks clusters, list of libraries required are listed in `library-requirements.txt`.
 
 ---
 
