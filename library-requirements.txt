@@ -1,0 +1,19 @@
+Core Data Science Libraries : 
+pandas, numpy, sklearn(_may require installation_)
+
+Visualization Libraries : 
+matplotlib
+
+Time Series & Statistical Analysis (_installation required_): 
+statsmodels, prophet
+
+Utility Libraries : 
+itertools, typing, tqdm(_may require installation_), warnings, time, datetime, re, dateutil.relativedelta
+
+PySpark / Apache Spark : 
+pyspark.sql.functions, spark
+
+---
+
+**Copy this code at the top of the notebook for installation, where required : 
+%pip install prophet statsmodels tqdm scikit-learn

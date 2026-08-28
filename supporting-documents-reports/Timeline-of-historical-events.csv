@@ -1,0 +1,44 @@
+Start Year,Start Month,End Year,End Month,Country,Event Direction,Event Type,Description,Notes
+1968,6,,,Canada,Production,New Pipeline,Original Enbridge Line 3 Pipeline completed,"Only year of opening given, month is averaged"
+1969,6,,,Canada,Consumption,New Pipeline,Enbridge Line 6 Pipeline completed,"Only year of opening given, month is averaged"
+1973,10,1974,3,Canada,Consumption,Export Cut,1973 OPEC Oil Embargo,
+1997,6,,,Canada,Production,New Pipeline,Express Pipeline completed to Casper,"Only year of opening given, month is averaged"
+2010,4,,,Canada,Production,New Pipeline,Alberta Clipper Pipeline (Enbridge Line 67) completed,
+2011,2,,,Canada,Production,New Pipeline,Keystone Pipeline completed to Cushing,
+2014,1,,,Canada,Production,New Pipeline,Keystone Pipeline extended to Port Arthur,"See Borenstein & Kellogg, McRae papers for info regarding pricing around pipeline constraints"
+2016,5,2016,8,Canada,Production,Localized Disruption,Fort McMurray Wildfire,
+2020,3,2020,9,Canada,Consumption,Demand Disruption,COVID Shutdowns,
+2020,4,2020,7,Canada,Production,Demand Disruption,COVID Shutdowns,
+2021,10,,,Canada,Production,New Pipeline,Enbridge Line 3 Pipeline replacement completed,
+2024,5,,,Canada,Production,New Pipeline,Trans Mountain Pipeline expansion completed,
+2020,2,2020,8,China,Consumption,Demand Disruption,COVID Shutdowns,
+1973,10,1974,3,Iran,Production,Export Cut,1973 OPEC Oil Embargo,
+1978,9,1979,2,Iran,Production,Strike,Iranian Revolution,
+1980,9,1988,8,Iran,Production,War,Iran-Iraq War,
+1973,10,1974,3,Iraq,Production,Export Cut,1973 OPEC Oil Embargo,
+1980,9,1988,8,Iraq,Production,War,Iran-Iraq War,
+1990,8,1991,2,Iraq,Production,War,Gulf War,
+1991,3,1996,5,Iraq,Production,Sanctions,Gulf War-related Trade Sanctions,
+2003,3,2003,9,Iraq,Production,War,Beginning of Iraq War,Oil production was only disrupted for a few months at the beginning of the war
+1973,10,1974,3,Japan,Consumption,Export Cut,1973 OPEC Oil Embargo,
+2020,3,2020,9,Japan,Consumption,Demand Disruption,COVID Shutdowns,
+1973,10,1974,3,Kuwait,Production,Export Cut,1973 OPEC Oil Embargo,
+1990,8,1991,2,Kuwait,Production,War,Gulf War,
+1973,10,1974,3,Qatar,Production,Export Cut,1973 OPEC Oil Embargo,
+2022,12,,,Russia,Production,Sanctions,G7 Price Cap on Russian oil exports,
+1973,10,1974,3,Saudi Arabia,Production,Export Cut,1973 OPEC Oil Embargo,
+2020,3,2020,9,Singapore,Consumption,Demand Disruption,COVID Shutdowns,
+1973,10,1974,3,United Arab Emirates,Production,Export Cut,1973 OPEC Oil Embargo,
+1968,6,,,United States,Consumption,New Pipeline,Original Enbridge Line 3 Pipeline completed,"Only year of opening given, month is averaged"
+1973,10,1974,3,United States,Consumption,Export Cut,1973 OPEC Oil Embargo,
+1997,6,,,United States,Consumption,New Pipeline,Express Pipeline completed to Casper,"Only year of opening given, month is averaged"
+2005,8,2005,10,United States,Production,Localized Disruption,Hurricane Katrina,"Disruptions in offshore oil production, Louisiana refineries"
+2010,4,,,United States,Consumption,New Pipeline,Alberta Clipper Pipeline (Enbridge Line 67) completed,
+2011,2,,,United States,Consumption,New Pipeline,Keystone Pipeline completed to Cushing,
+2014,1,,,United States,Consumption,New Pipeline,Keystone Pipeline extended to Port Arthur,"See Borenstein & Kellogg, McRae papers for info regarding pricing around pipeline constraints"
+2020,3,2020,9,United States,Consumption,Demand Disruption,COVID Shutdowns,
+2021,10,,,United States,Consumption,New Pipeline,Enbridge Line 3 Pipeline replacement completed,
+2002,12,2003,2,Venezuela,Production,Strike,2002-3 Venezuelan General Strike,
+2017,8,2026,2,Venezuela,Production,Sanctions,Financial Sanctions against PDVSA,"Partially lifted in October 2023, reimposed in 2024"
+2019,8,2026,2,Venezuela,Production,Sanctions,Trade Sanctions against Maduro regime,Ongoing
+2020,4,2020,8,Venezuela,Production,Demand Disruption,COVID Shutdowns,
