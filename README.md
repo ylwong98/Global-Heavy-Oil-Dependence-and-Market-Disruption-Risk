@@ -1,9 +1,9 @@
 # **Shifting Crude Oil Quality & Refining Constraints: A Data‑Driven Analysis of Global Heavy-Oil Dependence and Market Disruption Risk**
 ### **Professional Graduate Industry Capstone - Chirality Research x University of Calgary**
 **Team:**  
-- [Yu Ling (Elaine) Wong](https://www.linkedin.com/in/yu-ling-wong/)  
+- [Andrew Gellner](https://www.linkedin.com/in/andrew-gellner-data-analytics/) 
 - [Michael Morgan](https://www.linkedin.com/in/michael-morgan-calgary/)  
-- [Andrew Gellner](https://www.linkedin.com/in/andrew-gellner-data-analytics/)  
+- [Yu Ling (Elaine) Wong](https://www.linkedin.com/in/yu-ling-wong/) 
 ---
 
 ## **📌 Project Overview**
