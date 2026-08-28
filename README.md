@@ -47,15 +47,15 @@ heavy-oil-analysis/
 │ 
 ├── notebooks/                                                                     # All development notebooks (Databricks-exported)
 │   ├── 1-Data-Preparation-ETL/                                                     
-│       ├── 01-Canada's Heavy Crude Trade Partners - Ingestion.ipynb               # Process Canada's heavy crude trade data (imports/exports)
-│       ├── 01-EIA Country level heavy crude production - data ingestion.ipynb     # Ingest & calculate country-level heavy crude production using % heavy assumptions (from EIA-production-with-percent-heavy-calculation.xlsx)
-│       ├── 01-EIA residual fuel consumption API ingestion.ipynb                   # Ingest residual fuel consumption data from EIA API
-│       ├── 01-EIA total crude production ingestion.ipynb                          # Ingest total crude oil production data from EIA API
-│       ├── 02-Clean consumption EIA data.ipynb                                    # Clean & transform consumption data
-│       ├── 02-Update Binary Scenario Variables from Google Drive.ipynb            # Sync predefined exogenous scenario variables (from Timeline-of-historical-events.csv) to gold.exogenous_variables table
-│       ├── 02-Update Canada's Trade Relationships from Google Drive.ipynb         # Update country-specific trade shares used in the risk index calculation
-│       ├── 03-Create gold - heavy_consumption_timeseries_annual.ipynb             # Gold-layer heavy consumption table creation
-│       └── 03-Create prod and heavy_prod_monthly gold.ipynb                       # Gold-layer heavy production table creation
+│   │   ├── 01-Canada's Heavy Crude Trade Partners - Ingestion.ipynb               # Process Canada's heavy crude trade data (imports/exports)
+│   │   ├── 01-EIA Country level heavy crude production - data ingestion.ipynb     # Ingest & calculate country-level heavy crude production using % heavy assumptions (from EIA-production-with-percent-heavy-calculation.xlsx)
+│   │   ├── 01-EIA residual fuel consumption API ingestion.ipynb                   # Ingest residual fuel consumption data from EIA API
+│   │   ├── 01-EIA total crude production ingestion.ipynb                          # Ingest total crude oil production data from EIA API
+│   │   ├── 02-Clean consumption EIA data.ipynb                                    # Clean & transform consumption data
+│   │   ├── 02-Update Binary Scenario Variables from Google Drive.ipynb            # Sync predefined exogenous scenario variables (from Timeline-of-historical-events.csv) to gold.exogenous_variables table
+│   │   ├── 02-Update Canada's Trade Relationships from Google Drive.ipynb         # Update country-specific trade shares used in the risk index calculation
+│   │   ├── 03-Create gold - heavy_consumption_timeseries_annual.ipynb             # Gold-layer heavy consumption table creation
+│   │   └── 03-Create prod and heavy_prod_monthly gold.ipynb                       # Gold-layer heavy production table creation
 │   └── 2-Modelling-Analysis/                                                      
 │       ├── 04-Consumption - Looping All Selected Countries and Run All Scenarios.ipynb    # Batch consumption forecasting across all country-scenario pairs
 │       ├── 04-Production - Looping All Countries and Scenarios.ipynb                      # Batch production forecasting across all country-scenario pairs
