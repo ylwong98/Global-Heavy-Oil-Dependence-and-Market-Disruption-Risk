@@ -70,7 +70,9 @@ heavy-oil-analysis/
 │   ├── Timeline-of-historical-events.csv                                    # Historical disruption events
 │   ├── Assumptions-percent-heavy-oil-production-by-country.xlsx             # Assumption references for country-level heavy crude production share
 │   ├── EIA-production-with-percent-heavy-calculation.xlsx                   # Country‑level heavy crude production share values
-│   └── Final Report - Chirality Research.pdf                                # Final written report
+│   ├── Final Report.pdf                                                     # Final written report
+│   ├── Data Pipeline Diagram.png                                            # Data pipeline diagram
+│   └── Global Heavy Oil Dependence and Market Disruption Risk - Presentation  # Project presentation slides    
 │
 ├── LICENSE
 ├── README.md
@@ -81,6 +83,32 @@ heavy-oil-analysis/
 
 ## **📊 Data Sources**
 - **U.S. Energy Information Administration (EIA)**
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Data</th>
+      <th>Source Year</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Production</td>
+      <td>Total Crude Production<br>(Monthly)</td>
+      <td>Jan&nbsp;1973&nbsp;&#8209;&nbsp;Feb&nbsp;2026</td>
+      <td>Assumptions of % heavy crude shares will be used to calculate heavy crude volumes.</td>
+    </tr>
+    <tr>
+      <td>Consumption</td>
+      <td>Residual Fuel Consumption<br>(Annual)</td>
+      <td>1980&#8209;2024</td>
+      <td>Residual fuel as proxy. Monthly data not available for residual fuel consumption.</td>
+    </tr>
+  </tbody>
+</table>
+
 - Government reports & industry publications
 - Chirality Research domain expertise
 
@@ -97,11 +125,34 @@ Used residual fuel oil as a proxy for heavy‑oil demand.
 ### **3. Disruption Event Modelling**
 Events encoded as structural breaks or temporary shocks:
 
-|   |   |   |   |
-|---|---|---|---|
-| **1973 OPEC Embargo** | **1979 Iranian Revolution** | **Iran–Iraq War (1980–1988)** | **Gulf War (1990–1991)** |
-| **Venezuelan Sanctions (2017, 2019)** | **Pipeline Expansions (Line 3, Line 6, Keystone, TMX)** | **Fort McMurray Wildfires (2016)** | **Hurricane Katrina (2005)** |
-| **Venezuelan General Strike (2002–2003)** | **COVID‑19 Shutdowns (2020)** | **Russian Oil Price Cap (2022)** | — |
+<table>
+  <tbody>
+    <tr>
+      <td><b>1973 OPEC Embargo</b></td>
+      <td><b>1979 Iranian Revolution</b></td>
+      <td><b>Iran–Iraq War (1980–1988)</b></td>
+      <td><b>Gulf War (1990–1991)</b></td>
+    </tr>
+    <tr>
+      <td><b>Venezuelan Sanctions (2017, 2019)</b></td>
+      <td><b>Pipeline Expansions (Line 3, Line 6, Keystone, TMX)</b></td>
+      <td><b>Fort McMurray Wildfires (2016)</b></td>
+      <td><b>Hurricane Katrina (2005)</b></td>
+    </tr>
+    <tr>
+      <td><b>Venezuelan General Strike (2002–2003)</b></td>
+      <td><b>COVID‑19 Shutdowns (2020)</b></td>
+      <td><b>Russian Oil Price Cap (2022)</b></td>
+      <td><b>Iraq War (2003)</b></td>
+    </tr>
+    <tr>
+      <td><b>Gulf War-related Trade Sanctions (1991-1996)<b></td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
 
 ### **4. Forecasting Models**
 Models evaluated: **ARIMAX**, **SARIMAX**, **Prophet**
@@ -111,12 +162,46 @@ Models evaluated: **ARIMAX**, **SARIMAX**, **Prophet**
 - Production: Final 12 months = test set
 
 **Modelling Framework:**
-| Component            | Period                                              | Description |
-|----------------------|-----------------------------------------------------|-------------|
-| **Training Period**  | 1973–Feb2025(production), 1980-2021(consumption)    | Models trained on historical heavy‑oil production and residual‑fuel‑oil consumption data |
-| **Validation Period**| Feb2025-Feb2026(production), 2022–2024(consumption) | Final 3 years (consumption) and final 12 months (production) used for out‑of‑sample testing |
-| **Retrain Period**   | 1973–2026(production), 1980-2024(consumption)       | Models retrained on the full dataset before generating final scenario forecasts |
-| **Forecast Period**  | 2026–2030(production), 2025–2030(consumption)       | Heavy‑oil production and consumption projections used for scenario analysis and risk‑index calculation |
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">Component</th>
+      <th colspan="2">Period</th>
+      <th rowspan="2">Description</th>
+    </tr>
+    <tr>
+      <th>Production</th>
+      <th>Consumption</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Training Period</b></td>
+      <td>Jan 1973 – Feb 2025 </td>
+      <td>1980 – 2021 </td>
+      <td>Models trained on historical heavy‑oil production and residual‑fuel‑oil consumption data</td>
+    </tr>
+    <tr>
+      <td><b>Validation Period</b></td>
+      <td>Feb 2025 – Feb 2026 </td>
+      <td>2022 – 2024 </td>
+      <td>Final 3 years (consumption) and final 12 months (production) used for out‑of‑sample testing</td>
+    </tr>
+    <tr>
+      <td><b>Retrain Period</b></td>
+      <td>1973 – 2026 </td>
+      <td>1980 – 2024 </td>
+      <td>Models retrained on the full dataset before generating final scenario forecasts</td>
+    </tr>
+    <tr>
+      <td><b>Forecast Period</b></td>
+      <td>2026 – 2030 </td>
+      <td>2025 – 2030 </td>
+      <td>Heavy‑oil production and consumption projections used for scenario analysis and risk‑index calculation</td>
+    </tr>
+  </tbody>
+</table>
+
 
 Best model selected per country using MAPE.
 
@@ -134,9 +219,10 @@ All development and execution occur in **Databricks**, using a structured Bronze
 **Databricks Workspace:**  
 [https://dbc-91c40ae8-df1c.cloud.databricks.com/browse/folders/3838865724760078?o=7474659271125396](https://dbc-91c40ae8-df1c.cloud.databricks.com/browse/folders/3838865724760078?o=7474659271125396)
 
-![Data Pipeline Diagram]()
+**Data Pipeline Diagram**
+![Data Pipeline Diagram](supporting-documents-reports/Heavy%20Crude%20Analysis%20Data%20Pipeline%20Diagram%20-%20Chirality%20Research.png)
 
-**Suggested Run Sequence (Full Pipeline)**
+**Suggested Run Sequence (Full Pipeline):**
 Refer to numeric digits in front of notebook naming : 01-* → 02-* → 03-* → 04-* → 05-*
 
 A description of notebook functions is provided in `databricks-jupyter-notebooks-description.txt`.
