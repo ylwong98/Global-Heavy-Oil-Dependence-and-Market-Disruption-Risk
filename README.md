@@ -95,39 +95,27 @@ Residual fuel oil consumption was used as a proxy for heavy‑oil demand due to 
 
 ### **3. Disruption Event Modelling**
 Events included:
-- **1973 OPEC Embargo**  
-- **1979 Iranian Revolution**  
-- **Iran–Iraq War (1980–1988)**  
-- **Gulf War (1990–1991)**  
-- **Venezuelan sanctions (2017, 2019)**  
-- **Pipeline expansions** (Line 3, Line 6, Keystone, TMX)  
-- **Fort McMurray wildfires (2016)**  
-- **Hurricane Katrina (2005)**  
-- **Venezuelan General Strike (2002–2003)**  
-- **COVID‑19 shutdowns (2020)**  
-- **Russian oil price cap (2022)**  
+| **1973 OPEC Embargo** | **1979 Iranian Revolution** | **Iran–Iraq War (1980–1988**) | **Gulf War (1990–1991)** |
+| **Venezuelan Sanctions (2017, 2019)** | **Pipeline Expansions (Line 3, Line 6, Keystone, TMX)** | **Fort McMurray Wildfires (2016)** | **Hurricane Katrina (2005)** |
+| **Venezuelan General Strike (2002–2003)** | **COVID‑19 Shutdowns (2020)** | **Russian Oil Price Cap (2022**) | — |
 
 Events were encoded as structural breaks or temporary shocks.
 
 ### **4. Forecasting Models**
 Models evaluated:
-- **ARIMAX**  
-- **SARIMAX**  
-- **Prophet**
+- **ARIMAX**  |  **SARIMAX**  |  **Prophet**
 
 Training/testing split:  
-- Final 3 years of available data = test set
-- Remaining history = training set
+- Consumption data : Final 3 years of available data = test set,  Remaining history = training set
+- Production data : Final 12 months of available data = test set,  Remaining history = training set
 
-Best model selected per country based on error metrics.
+Best model selected per country based on error metrics (MAPE).
 
 ### **5. Heavy‑Oil Market Disruption Risk Index**
 Index components:
-- Heavy‑oil supply volatility  
-- Heavy‑oil demand exposure  
-- Refining rigidity  
-- Marine fuel dependence  
-- Canada’s exposure to each disruption scenario  
+- Heavy‑oil supply shock
+- Heavy‑oil demand shock
+- Canada’s exposure weight to each disruption scenario  
 
 ---
 
@@ -198,8 +186,8 @@ This notebook generates the **Heavy‑Oil Market Disruption Risk Index**, combin
 ### **4. Running the Workflow**
 1. Attach a Databricks cluster  
 2. Run **Data Preparation (ETL)** notebooks in order  
-3. Run **Forecasting** notebooks (single‑scenario or looping versions)  
-4. Run **05-Update Index** to generate final risk index tables  
+3. Run **Forecasting** notebooks (looping versions)  
+4. Run **Analysis** notebook to generate final risk index tables  
 5. Export Gold tables for Power BI dashboard
 
 ---
