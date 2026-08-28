@@ -46,19 +46,30 @@ These results are visualized in an interactive **Power BI dashboard**.
 ## **📂 Repository Structure**
 ```bash
 project-root/
-│
-├── notebooks/                     # All development notebooks (Databricks-exported)
-│   ├── ingestion/                 # 01-* notebooks for Bronze-layer ingestion
-│   ├── cleaning/                  # 02-* notebooks for Silver-layer cleaning & updates
-│   ├── gold/                      # 03-* notebooks for Gold-layer table creation
-│   ├── modelling/                 # 04-* forecasting & scenario analysis notebooks
-│   └── EDA/                       # Exploratory analysis
+│ 
+├── notebooks/                                                               # All development notebooks (Databricks-exported)
+|   ├── EDA/                                                                 # Exploratory analysis
+│   ├── 1-Data-Preparation-ETL/                                                # 
+|       ├── 01-Canada's Heavy Crude Trade Partners - Ingestion.ipnyb         #
+|       ├── 01-EIA Country level heavy crude - data ingestion.ipnyb          # Ingest & calculate country-level heavy crude production data, using pre-defined % values
+|       ├── 01-EIA residual fuel consumption API ingestion.ipnyb             #
+|       └── 01-EIA total crude production ingestion.ipnyb                    #
+|       ├── 02-Clean consumption EIA data.ipnyb
+|       ├── 02-Update Binary Scenario Variables from Google Drive.ipnyb      # notebooks for Silver-layer cleaning & updates
+|       └── 02-Update Canada's Trade Relationships from Google Drive.ipnyb   #
+|       ├── 03-Create gold - heavy_consumption_timeseries_annual.ipynb       # notebook for Gold-layer table creation
+|       └── 03-Create prod and heavy_prod_monthly gold.ipynb                 # notebook for Gold-layer table creation
+│   └── 2-Modelling-Analysis/                                                # forecasting & scenario analysis notebooks
+|       ├── 04-Consumption - Looping All Selected Countries and Run All Scenarios.ipynb    #
+|       ├── 04-Production - Looping All Countries and Scenarios                            #
+|       └── 05-Update Index.ipynb                                                          #
 │
 ├── dashboard/
 │   └── Chirality Research - Analysis of Global Heavy-Oil Dependence and Market Disruption Risk - Dashboard.pbix
 │
-├── reports/
-│   └── Final_Report.pdf           # Final written report (no figures included)
+├── supporting documents and reports/
+|   ├── 
+│   └── Final Report (Expanded) - Chirality.pdf                              # Final written report
 │
 ├── LICENSE
 ├── README.md
@@ -197,14 +208,7 @@ By avoiding DirectQuery on a capacity-constrained Databricks environment, Import
 ---
 
 ### **6. Requirements**
-All dependencies are managed inside Databricks clusters:
-- Core Data Science Libraries : `pandas`, `numpy`, `sklearn`(_may require installation_)
-- Visualization Libraries : `matplotlib`
-- Time Series & Statistical Analysis (_installation required_): `statsmodels`, `prophet`
-- Utility Libraries : `itertools`, `typing`, `tqdm`(_may require installation_), `warnings`, `time`, `datetime`, `re`, `dateutil.relativedelta`
-- PySpark / Apache Spark : `pyspark.sql.functions`, `spark`
-
-  Copy this code at the top of the notebook for installation: `%pip install prophet statsmodels tqdm scikit-learn`
+All dependencies are managed inside Databricks clusters, list of libraries required are listed in `libraries-requirement.txt`.
 
 ---
 
