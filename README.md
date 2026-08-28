@@ -71,7 +71,7 @@ project-root/
 - Government reports & industry publications
 - Chirality Research domain expertise
 
-##🛠️ Methodology
+## **🛠️ Methodology**
 ### **1. Literature Review**
 Built domain knowledge on API gravity, refining constraints, Canada’s trade relationships, and historical disruption events.
 
