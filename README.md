@@ -43,33 +43,27 @@ These results are visualized in an interactive **Power BI dashboard**.
 
 ---
 
-## **📂 Project Structure**
-Code
+## **📂 Repository Structure**
+```bash
 project-root/
 │
-├── data/
-│   ├── bronze/             # Raw API-ingested data (production, consumption, events)
-│   ├── silver/             # Cleaned, standardized, model-ready datasets
-│   └── gold/               # Final business-ready tables for forecasting & dashboard
-│
-├── notebooks/
-│   ├── EDA/                # Exploratory analysis
-│   ├── ingestion/          # EIA API ingestion & initial processing
-│   ├── cleaning/           # Silver-layer transformations
-│   ├── gold/               # Gold-layer table creation
-│   └── modelling/          # Forecasting, risk index, scenario analysis
+├── notebooks/                     # All development notebooks (Databricks-exported)
+│   ├── ingestion/                 # 01-* notebooks for Bronze-layer ingestion
+│   ├── cleaning/                  # 02-* notebooks for Silver-layer cleaning & updates
+│   ├── gold/                      # 03-* notebooks for Gold-layer table creation
+│   ├── modelling/                 # 04-* forecasting & scenario analysis notebooks
+│   └── EDA/                       # Exploratory analysis
 │
 ├── dashboard/
-│   └── Chirality Research - Analysis of Global Heavy-Oil Dependence and Market Disruption Risk - Dashboard.pbix 
+│   └── Chirality Research - Analysis of Global Heavy-Oil Dependence and Market Disruption Risk - Dashboard.pbix
 │
 ├── reports/
-│   ├── figures/
-│   └── Final_Report.pdf
+│   └── Final_Report.pdf           # Final written report (no figures included)
 │
 ├── LICENSE
 ├── README.md
 └── requirements.txt
-
+```
 ---
 
 ## **📊 Data Sources**
@@ -81,15 +75,12 @@ project-root/
 ### **1. Literature Review**
 Built domain knowledge on API gravity, refining constraints, Canada’s trade relationships, and historical disruption events.
 
-### **2. Heavy‑Oil Production Estimation**
+### **2. Heavy‑Oil Production & Consumption Estimation**
 Heavy‑oil production is rarely published directly. We estimated heavy‑oil shares for **18 major producing countries**, constructing a **1975–2026** time series.
-
-### **3. Heavy‑Oil Consumption Estimation**
 Residual fuel oil consumption was used as a proxy for heavy‑oil demand due to limited API‑specific consumption data.
 
-### **4. Disruption Event Modelling**
+### **3. Disruption Event Modelling**
 Events included:
-
 - **1973 OPEC Embargo**  
 - **1979 Iranian Revolution**  
 - **Iran–Iraq War (1980–1988)**  
@@ -104,7 +95,7 @@ Events included:
 
 Events were encoded as structural breaks or temporary shocks.
 
-### **5. Forecasting Models**
+### **4. Forecasting Models**
 Models evaluated:
 - **ARIMAX**  
 - **SARIMAX**  
@@ -116,7 +107,7 @@ Training/testing split:
 
 Best model selected per country based on error metrics.
 
-### **6. Heavy‑Oil Market Disruption Risk Index**
+### **5. Heavy‑Oil Market Disruption Risk Index**
 Index components:
 - Heavy‑oil supply volatility  
 - Heavy‑oil demand exposure  
