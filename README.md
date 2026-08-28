@@ -65,14 +65,15 @@ heavy-oil-analysis/
 │   └── Chirality Research - Analysis of Global Heavy-Oil Dependence and Market Disruption Risk - Dashboard.pbix
 │
 ├── supporting-documents-reports/
-│   ├── Canada-heavy-crude-trade-exports_Jun2021-Jun2026.csv                 # Canada's heavy crude exports
-│   ├── Canada-heavy-crude-trade-imports-Jun2021-Jun2026.csv                 # Canada's heavy crude imports
-│   ├── Timeline-of-historical-events.csv                                    # Historical disruption events
-│   ├── Assumptions-percent-heavy-oil-production-by-country.xlsx             # Assumption references for country-level heavy crude production share
-│   ├── EIA-production-with-percent-heavy-calculation.xlsx                   # Country‑level heavy crude production share values
-│   ├── Final Report.pdf                                                     # Final written report
-│   ├── Data Pipeline Diagram.png                                            # Data pipeline diagram
-│   └── Global Heavy Oil Dependence and Market Disruption Risk - Presentation  # Project presentation slides    
+│   ├── Canada-heavy-crude-trade-exports_Jun2021-Jun2026.csv                          # Canada's heavy crude exports
+│   ├── Canada-heavy-crude-trade-imports-Jun2021-Jun2026.csv                          # Canada's heavy crude imports
+│   ├── Timeline-of-historical-events.csv                                             # Historical disruption events
+│   ├── Assumptions-percent-heavy-oil-production-by-country.xlsx                      # Assumption references for country-level heavy crude production share
+│   ├── EIA-production-with-percent-heavy-calculation.xlsx                            # Country‑level heavy crude production share values
+│   ├── Final Report.pdf                                                              # Project final written report
+│   ├── Dashboard Main Interface.png                                                  # Dashboard main page diagram
+│   ├── Data Pipeline Diagram.png                                                     # Project data pipeline diagram
+│   └── Global Heavy Oil Dependence and Market Disruption Risk - Presentation.pptx    # Project presentation slides    
 │
 ├── LICENSE
 ├── README.md
