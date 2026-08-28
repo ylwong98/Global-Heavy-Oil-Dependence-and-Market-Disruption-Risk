@@ -96,9 +96,12 @@ Used residual fuel oil as a proxy for heavy‑oil demand.
 
 ### **3. Disruption Event Modelling**
 Events encoded as structural breaks or temporary shocks:
-| **1973 OPEC Embargo** | **1979 Iranian Revolution** | **Iran–Iraq War (1980–1988**) | **Gulf War (1990–1991)** |
+
+|   |   |   |   |
+|---|---|---|---|
+| **1973 OPEC Embargo** | **1979 Iranian Revolution** | **Iran–Iraq War (1980–1988)** | **Gulf War (1990–1991)** |
 | **Venezuelan Sanctions (2017, 2019)** | **Pipeline Expansions (Line 3, Line 6, Keystone, TMX)** | **Fort McMurray Wildfires (2016)** | **Hurricane Katrina (2005)** |
-| **Venezuelan General Strike (2002–2003)** | **COVID‑19 Shutdowns (2020)** | **Russian Oil Price Cap (2022**) | — |
+| **Venezuelan General Strike (2002–2003)** | **COVID‑19 Shutdowns (2020)** | **Russian Oil Price Cap (2022)** | — |
 
 ### **4. Forecasting Models**
 Models evaluated: **ARIMAX**, **SARIMAX**, **Prophet**
@@ -159,8 +162,8 @@ All dependencies are managed inside Databricks clusters, list of libraries requi
 ---
 
 ## **📊 Dashboard Preview**
-The interactive dashboard is created using Microsoft Power BI via the Import data connectivity mode to load the **Gold‑layer tables** exported from Databricks. 
-By avoiding DirectQuery on a capacity-constrained Databricks environment, Import mode ensures fast visuals, stable performance, and full DAX functionality.
+The interactive dashboard is built in **Microsoft Power BI** using **Import mode** to load the **Gold‑layer tables** exported from Databricks. 
+Import mode avoids the performance limitations of DirectQuery on a capacity‑constrained environment, ensuring fast visuals, stable performance, and full DAX functionality.
 
 The dashboard provides an interactive view of the project’s core insights, including:
 - Country‑level production & consumption forecasts
@@ -168,6 +171,9 @@ The dashboard provides an interactive view of the project’s core insights, inc
 - Heavy‑oil surplus/deficit projections
 - Risk index visualization
 - Canada‑specific opportunity analysis
+
+A copy of the dashboard file is available in the `dashboard/` folder of the repository.
+`Chirality Research - Analysis of Global Heavy-Oil Dependence and Market Disruption Risk - Dashboard.pbix`
 
 ---
 
