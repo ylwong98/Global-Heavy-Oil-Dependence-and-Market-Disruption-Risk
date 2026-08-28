@@ -1,0 +1,50 @@
+### **1. Data Preparation (ETL)**
+Located under **1‑Data Preparation (ETL)**
+
+**Ingestion (Bronze Layer)**  
+1. `01-Canada’s Heavy Crude Trade Partners - Ingestion`  
+2. `01-EIA residual fuel consumption API ingestion`  
+3. `01-EIA total crude production ingestion`  
+4. `01-EIA_Country level heavy crude - data ingestion`  
+
+These notebooks pull raw production, consumption, trade partner, and heavy‑oil proxy data from EIA APIs and external sources.
+
+**Cleaning & Updates (Silver Layer)**  
+5. `02-Clean consumption EIA data`  
+6. `02-Update Binary Scenario Variables from Google Drive`  
+7. `02-Update Canada’s Trade Relationships from Google Drive`  
+
+These notebooks standardize formats, update scenario variables, and prepare model‑ready datasets.
+
+**Gold Table Creation (Gold Layer)**  
+8. `03-Create gold - heavy_consumption_timeseries_annual`  
+9. `03-Create prod and heavy_prod_monthly gold`  
+
+These produce final business‑ready tables for forecasting, risk index modeling, and dashboard integration.
+
+---
+
+### **2. Forecasting — Production & Consumption Models**
+Located under **2‑Forecasting**:
+
+**Validation Scripts (Optional, for testing only)**  
+- `(FOR VALIDATION ONLY) Consumption Forecast - Individual Scenario`  
+- `(FOR VALIDATION ONLY) Production Forecast - Individual Scenario`  
+
+**Worker Notebooks (Main Forecasting Logic)**  
+10. `Consumption Forecast - Single Scenario by Country`  
+11. `Production Forecast - Single Scenario by Country`  
+12. `Production - Run All Scenarios for a Country and Update Heavy Crude Production`  
+13. `04-Consumption - Looping All Selected Countries and Run All Scenarios`  
+14. `04-Production - Looping All Countries and Scenarios` 
+
+These notebooks run ARIMAX, SARIMAX, and Prophet models for all countries and all disruption scenarios.
+
+---
+
+### **3. Analysis — Risk Index & Final Outputs**
+Located under **3‑Analysis**:
+
+15. `05-Update Index`  
+
+This notebook generates the **Heavy‑Oil Market Disruption Risk Index**, combining heavy‑oil supply and demand shocks, and Canada’s trade‑based exposure to each disruption scenario.
