@@ -159,8 +159,8 @@ All dependencies are managed inside Databricks clusters, list of libraries requi
 ---
 
 ## **📊 Dashboard Preview**
-The interactive dashboard is created using Microsoft Power BI via the Import data connectivity mode to load the **Gold‑layer tables** exported from Databricks. 
-By avoiding DirectQuery on a capacity-constrained Databricks environment, Import mode ensures fast visuals, stable performance, and full DAX functionality.
+The interactive dashboard is built in **Microsoft Power BI** using **Import mode** to load the **Gold‑layer tables** exported from Databricks. 
+Import mode avoids the performance limitations of DirectQuery on a capacity‑constrained environment, ensuring fast visuals, stable performance, and full DAX functionality.
 
 The dashboard provides an interactive view of the project’s core insights, including:
 - Country‑level production & consumption forecasts
@@ -168,6 +168,9 @@ The dashboard provides an interactive view of the project’s core insights, inc
 - Heavy‑oil surplus/deficit projections
 - Risk index visualization
 - Canada‑specific opportunity analysis
+
+A copy of the dashboard file is available in the `dashboard/` folder of the repository.
+`Chirality Research - Analysis of Global Heavy-Oil Dependence and Market Disruption Risk - Dashboard.pbix`
 
 ---
 
