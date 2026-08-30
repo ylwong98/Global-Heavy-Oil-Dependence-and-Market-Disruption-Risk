@@ -294,7 +294,7 @@ The dashboard provides an interactive view of the project’s core insights, inc
 - Risk index visualization
 - Canada‑specific opportunity analysis
 
-![Dashboard Main Interface](supporting-documents-reports/Dashboard%Main%Interface.png)<br><br> 
+![Dashboard Main Interface](supporting-documents-reports/Dashboard%20Main%20Interface.png)<br><br> 
 
 A copy of the dashboard file is available in the `dashboard/` folder of the repository.
 `Chirality Research - Analysis of Global Heavy-Oil Dependence and Market Disruption Risk - Dashboard.pbix`
