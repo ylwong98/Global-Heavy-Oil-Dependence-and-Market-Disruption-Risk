@@ -23,7 +23,7 @@ Heavy crude oil supply is increasingly constrained, while many countries remain 
 
 To quantify these dynamics, we:
 - Estimated heavy‑oil production for **18 major producing countries (1973–2026)**  
-- Modeled heavy‑oil consumption using **residual fuel oil** as a proxy  
+- Modelled heavy‑oil consumption using **residual fuel oil** as a proxy  
 - Incorporated major **geopolitical and localized disruption events**  
 - Forecasted production and consumption to **2030** under multiple scenarios  
 - Built a **risk index** combining heavy‑oil supply and demand shocks, and Canada’s trade‑based exposure to each disruption scenario
@@ -85,31 +85,63 @@ heavy-oil-analysis/
 ## **📊 Data Sources**
 - **U.S. Energy Information Administration (EIA)**
 
-<table>
-  <thead>
-    <tr>
-      <th>Category</th>
-      <th>Data</th>
-      <th>Source Year</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Production</td>
-      <td>Total Crude Production<br>(Monthly)</td>
-      <td>Jan&nbsp;1973&nbsp;&#8209;&nbsp;Feb&nbsp;2026</td>
-      <td>Assumptions of % heavy crude shares will be used to calculate heavy crude volumes.</td>
-    </tr>
-    <tr>
-      <td>Consumption</td>
-      <td>Residual Fuel Consumption<br>(Annual)</td>
-      <td>1980&#8209;2024</td>
-      <td>Residual fuel as proxy. Monthly data not available for residual fuel consumption.</td>
-    </tr>
-  </tbody>
-</table>
+  <table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Data</th>
+        <th>Source Period</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Production</td>
+        <td>Total Crude Production<br>(Monthly)</td>
+        <td>Jan&nbsp;1973&nbsp;&#8209;&nbsp;Feb&nbsp;2026</td>
+        <td>
+          "Crude oil including lease condensate value" as proxy for total crude volumes. Assumptions of % heavy crude shares will be used to calculate heavy crude volumes (% values used can be referred to in <code>EIA-production-with-percent-heavy-calculation.xlsx</code>). [
+          <a href="https://www.eia.gov/international/data/world/petroleum-and-other-liquids/monthly-petroleum-and-other-liquids-production?pd=5&p=0000000000000000000000000000000000vg&u=0&f=M&v=mapbubble&a=-&i=none&vo=value&t=C&g=00000000000000000000000000000000000000000000000001&l=249-ruvvvvvfvtvnvv1vrvvvvfvvvvvvfvvvou20evvvvvvvvvvnvvvs0008&s=94694400000&e=1775001600000">
+            Link
+          </a>]
+        </td>
+      </tr>
+      <tr>
+        <td>Consumption</td>
+        <td>Residual Fuel Consumption<br>(Annual)</td>
+        <td>1980 &#8209; 2024</td>
+        <td>
+          Residual fuel as proxy for heavy crude volumes. Monthly data not available for residual fuel consumption. [
+          <a href="https://www.eia.gov/international/data/world/petroleum-and-other-liquids/more-petroleum-and-other-liquids-data?pd=5&p=00000000002&u=0&f=A&v=mapbubble&a=-&i=none&vo=value&t=C&g=none&l=249-ruvvvvvfvtvnvv1vrvvvvfvvvvvvfvvvou20evvvvvvvvvvnvuvs0008&s=315532800000&e=1735689600000">
+            Link
+          </a>]
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
+- **Statistics Canada (StatCan)** [[Link](https://www150.statcan.gc.ca/n1/pub/71-607-x/71-607-x2021004-eng.htm)]
+  <table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Source Period</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Production</td>
+        <td>Jun&nbsp;2021&nbsp;&#8209;&nbsp;Jun&nbsp;2026</td>
+        <td>Commodity selected: Petroleum & bituminous min oils, crude, relative density >= 0.9042 (< 25°A.P.I.)</td>
+      </tr>
+      <tr>
+        <td>Consumption</td>
+        <td>Jun&nbsp;2021&nbsp;&#8209;&nbsp;Jun&nbsp;2026</td>
+        <td>Commodity selected: Petroleum & bituminous min oils, crude, relative density >= 0.9042 (< 25°A.P.I.)</td>
+      </tr>
+    </tbody>
+  </table>
 - Government reports & industry publications
 - Chirality Research domain expertise
 
@@ -117,11 +149,11 @@ heavy-oil-analysis/
 
 ## **🛠️ Methodology**
 ### **1. Literature Review**
-Built domain knowledge on API gravity, refining constraints, Canada’s trade relationships, and historical disruption events.
+Built domain knowledge on API gravity, refining constraints, Canada’s trade relationships, and historical disruption events.<br><br>
 
 ### **2. Heavy‑Oil Production & Consumption Estimation**
 Estimated heavy‑oil shares for **18 major producing countries** (1973–2026).
-Used residual fuel oil as a proxy for heavy‑oil demand.
+Used residual fuel oil as a proxy for heavy‑oil demand. <br><br>
 
 ### **3. Disruption Event Modelling**
 Events encoded as structural breaks or temporary shocks:
@@ -154,11 +186,12 @@ Events encoded as structural breaks or temporary shocks:
     </tr>
   </tbody>
 </table>
-
+<br>
+        
 ### **4. Forecasting Models**
-Models evaluated: **ARIMAX**, **SARIMAX**, **Prophet**
+**Models Evaluated:** **_ARIMAX_**, **_SARIMAX_**, **_Prophet_**
 
-**Train/test split:**
+**Train/Test Split:**
 - Consumption: Final 3 years = test set
 - Production: Final 12 months = test set
 
@@ -204,7 +237,7 @@ Models evaluated: **ARIMAX**, **SARIMAX**, **Prophet**
 </table>
 
 
-Best model selected per country using MAPE.
+Best model selected per country using MAPE.<br><br>
 
 ### **5. Heavy‑Oil Market Disruption Risk Index**
 Index components:
@@ -220,23 +253,23 @@ All development and execution occur in **Databricks**, using a structured Bronze
 **Databricks Workspace:**  
 [https://dbc-91c40ae8-df1c.cloud.databricks.com/browse/folders/3838865724760078?o=7474659271125396](https://dbc-91c40ae8-df1c.cloud.databricks.com/browse/folders/3838865724760078?o=7474659271125396)
 
-**Data Pipeline Diagram**
-![Data Pipeline Diagram](supporting-documents-reports/Heavy%20Crude%20Analysis%20Data%20Pipeline%20Diagram%20-%20Chirality%20Research.png)
+**Data Pipeline Diagram:**<br>
+![Data Pipeline Diagram](supporting-documents-reports/Data%20Pipeline%20Diagram.png)
 
 **Suggested Run Sequence (Full Pipeline):**
 Refer to numeric digits in front of notebook naming : 01-* → 02-* → 03-* → 04-* → 05-*
 
-A description of notebook functions is provided in `databricks-jupyter-notebooks-description.txt`.
+A description of notebook functions is provided in `databricks-jupyter-notebooks-description.txt` within the `main` branch.
 
-**Running the Workflow**
+**Running the Workflow:**
 1. Attach a Databricks cluster  
 2. Run **Data Preparation (ETL)** notebooks in order (01 → 02 → 03)
 3. Run **Forecasting** notebooks (04)  
 4. Run **Analysis** notebook - (05)  
 5. Export Gold tables for Power BI dashboard
 
-**Requirements**
-All dependencies are managed inside Databricks clusters, list of libraries required are listed in `library-requirements.txt`.
+**Requirements:**
+All dependencies are managed inside Databricks clusters, list of libraries required are listed in `library-requirements.txt` within the `main` branch.
 
 ---
 
@@ -261,7 +294,7 @@ The dashboard provides an interactive view of the project’s core insights, inc
 - Risk index visualization
 - Canada‑specific opportunity analysis
 
-![Dashboard Main Interface](supporting-documents-reports/Dashboard%Main%Interface.png) 
+![Dashboard Main Interface](supporting-documents-reports/Dashboard%20Main%20Interface.png)<br><br> 
 
 A copy of the dashboard file is available in the `dashboard/` folder of the repository.
 `Chirality Research - Analysis of Global Heavy-Oil Dependence and Market Disruption Risk - Dashboard.pbix`
