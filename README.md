@@ -23,7 +23,7 @@ Heavy crude oil supply is increasingly constrained, while many countries remain 
 
 To quantify these dynamics, we:
 - Estimated heavy‑oil production for **18 major producing countries (1973–2026)**  
-- Modeled heavy‑oil consumption using **residual fuel oil** as a proxy  
+- Modelled heavy‑oil consumption using **residual fuel oil** as a proxy  
 - Incorporated major **geopolitical and localized disruption events**  
 - Forecasted production and consumption to **2030** under multiple scenarios  
 - Built a **risk index** combining heavy‑oil supply and demand shocks, and Canada’s trade‑based exposure to each disruption scenario
@@ -100,7 +100,7 @@ heavy-oil-analysis/
         <td>Total Crude Production<br>(Monthly)</td>
         <td>Jan&nbsp;1973&nbsp;&#8209;&nbsp;Feb&nbsp;2026</td>
         <td>
-          "crude oil including lease condensate value" as proxy for total crude volumes. Assumptions of % heavy crude shares will be used to calculate heavy crude volumes. [
+          "Crude oil including lease condensate value" as proxy for total crude volumes. Assumptions of % heavy crude shares will be used to calculate heavy crude volumes (% values used can be referred to in <code>EIA-production-with-percent-heavy-calculation.xlsx</code>). [
           <a href="https://www.eia.gov/international/data/world/petroleum-and-other-liquids/monthly-petroleum-and-other-liquids-production?pd=5&p=0000000000000000000000000000000000vg&u=0&f=M&v=mapbubble&a=-&i=none&vo=value&t=C&g=00000000000000000000000000000000000000000000000001&l=249-ruvvvvvfvtvnvv1vrvvvvfvvvvvvfvvvou20evvvvvvvvvvnvvvs0008&s=94694400000&e=1775001600000">
             Link
           </a>]
